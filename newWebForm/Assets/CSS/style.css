@@ -139,6 +139,13 @@ html {
     cursor: pointer;
 }
 
+.checkLogin {
+    font-size: 1.4rem;
+    color: red;
+    width: 100%;
+    text-align: center;
+}
+
 .form-group.invalid .form-control {
     border-color: #f33a58;
 }

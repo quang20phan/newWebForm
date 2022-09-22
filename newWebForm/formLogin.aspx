@@ -36,7 +36,11 @@
                                     <div class="forgot__PassWord">
                                         <a href="#">Quên mật khẩu?</a>
                                     </div>
-
+                                     
+                                    <div class="checkLogin">
+                                         <asp:Literal ID="checkLogin" runat="server"></asp:Literal>
+                                    </div>
+                                   
                                     <div class="or">
                                         <div class="line"></div>
                                         <p class="">HOẶC</p>

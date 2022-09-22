@@ -23,11 +23,15 @@ namespace newWebForm
         {
             List<User> users = Users.getOneUser(txt_userName.Text, txt_userPassWord.Text);
 
-            if (users.Count > 0)
+            if (users.Count != 0)
             {
 
                 Response.Redirect("Default.aspx");
                 Response.End();
+            }
+            else
+            {
+                checkLogin.Text = "Thông tin tài khoản hoặc mật khẩu không chính xác!";
             }
         }
     }
