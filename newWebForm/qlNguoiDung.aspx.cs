@@ -25,13 +25,8 @@ namespace newWebForm
 
         protected void dgv__User_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /*dgv__User.DataSource = conn.getData();
-            dgv__User.DataBind();
-            int rows = dgv__User.SelectedIndex;
-            DataTable dt = new DataTable();
-            txtUserID.Text = dt.Rows[rows][0].ToString();
-            txtUserName.Text = dt.Rows[rows][1].ToString();
-            txtPassWord.Text = dt.Rows[rows][2].ToString();?*/
+            
+
         }
 
         protected void btnThem_Click(object sender, EventArgs e)

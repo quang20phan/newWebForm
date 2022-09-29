@@ -25,9 +25,9 @@ namespace newWebForm
 
             if (users.Count != 0)
             {
+                Page.Session["user__name"] = txt_userName.Text;
+                Response.Redirect("/Display/qlUsers");
 
-                Response.Redirect("Default.aspx");
-                Response.End();
             }
             else
             {

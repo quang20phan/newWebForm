@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Quản Lý User</title>
-    <link rel="stylesheet" href="Assets/styleFormUser.css">
+    <link rel="stylesheet" href="Assets/CSS/styleFormUser.css"/>
 
 </head>
 <body>
