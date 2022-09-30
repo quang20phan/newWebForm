@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace newWebForm.Display.myMasterPages
+namespace newWebForm.UserControls
 {
-    public partial class Home1 : System.Web.UI.Page
+    public partial class NavbarAdmin : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {

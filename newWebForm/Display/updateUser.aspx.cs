@@ -41,7 +41,7 @@ namespace newWebForm.Display
             user.userPassWord = txtPass.Text;
             if (Users.CreateOrUpdate(user))
             {
-                Response.Redirect("/Display/qlUsers");
+                Response.Redirect("/Display/Admin/Admin.aspx");
             }
         }
     }

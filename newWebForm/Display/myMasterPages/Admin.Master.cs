@@ -8,13 +8,13 @@ using newWebForm.Entity;
 
 namespace newWebForm.Display.myMasterPages
 {
-    public partial class Home : System.Web.UI.MasterPage
+    public partial class Admin : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Common.checkLogin())
             {
-                lblHello.Text = Page.Session["user__name"].ToString();
+                lblUserName.Text = Page.Session["user__name"].ToString();
             }
             else
             {
