@@ -36,7 +36,7 @@ namespace newWebForm.Display.Admin
 
         }
 
-        protected void dgv__gvUser_RowEditing(object sender, GridViewEditEventArgs e)
+        protected void dgv__User_RowEditing(object sender, GridViewEditEventArgs e)
         {
             int _id = Convert.ToInt32(dgv__User.DataKeys[e.NewEditIndex].Value);
             User user = Users.GetUserById(_id);
@@ -49,5 +49,42 @@ namespace newWebForm.Display.Admin
             Response.Redirect("/Display/updateUser");
         }
 
+        protected void dgv__User_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            dgv__User.PageIndex = e.NewPageIndex;
+            List<User> lstUser = Users.getAllUser();
+            dgv__User.DataSource = lstUser;
+            dgv__User.DataBind();
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            string _search = tblSearch.Text.ToString();
+
+            List<User> User = Users.SearchUser(_search);
+
+            if (User.Count != 0)
+            {
+                dgv__User.DataSource = User;
+                dgv__User.DataBind();
+                lblErrorMessage.Visible = false;
+            }
+            else
+            {
+                lblErrorMessage.Visible = true;
+                lblErrorMessage.Text = "Không tìm thấy kết quả!";
+            }
+               
+        }
+
+        protected void ddlPageSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<User> lstUsers = Users.getAllUser();
+            dgv__User.PageSize = Convert.ToInt32(ddlPageSize.SelectedItem.ToString());
+
+            dgv__User.PageIndex = 0;
+            dgv__User.DataSource = lstUsers;
+            dgv__User.DataBind();
+        }
     }
 }

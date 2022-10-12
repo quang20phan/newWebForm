@@ -152,35 +152,33 @@ namespace newWebForm.DAO
             return user;
         }
 
-        public static User GetId()
+        public static List<User> SearchUser(string _search)
         {
+            List<User> users = new List<User>();
             SqlConnection conn = ConnectionDB.getConnection();
-
-            User user = null;
-            string sql = "select userID from [tbl_Users]";
-
-            SqlCommand sqlCommand = new SqlCommand(sql, conn);
-            sqlCommand.CommandType = System.Data.CommandType.Text;
+            string sql = "SELECT userID, userName FROM [tbl_Users] WHERE( userID LIKE '%" + _search + "%' or userName LIKE '%" + _search + "%' )";
 
             conn.Open();
-
-
+            SqlCommand sqlCommand = new SqlCommand(sql, conn);
+            sqlCommand.CommandType = System.Data.CommandType.Text;
             SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
 
             while (sqlDataReader.Read())
             {
-                user = new User
+                User user = new User
                 {
-
                     userID = Convert.ToInt32(sqlDataReader["userID"]),
-
+                    userName = Convert.ToString(sqlDataReader["userName"]),
                 };
+                users.Add(user);
             }
 
             sqlDataReader.Close();
-            ConnectionDB.Close(conn);
+            conn.Close();
             conn.Dispose();
-            return user;
+            return users;
+
         }
+
     }
 }
